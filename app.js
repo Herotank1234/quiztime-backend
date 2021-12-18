@@ -7,10 +7,8 @@ app.use(express.json());
 
 app.get('/moreQuestions', async (req, res) => {
   const { number } = req.query;
-  console.log(number)
   axios.get(`https://opentdb.com/api.php?amount=${number}&type=multiple`)
     .then((resp) => {
-      console.log(resp.data)
       const results = resp.data.results
       res.status(200).send(results)
     });
