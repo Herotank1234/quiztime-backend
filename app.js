@@ -5,7 +5,7 @@ const port = 3000;
 
 app.use(express.json());
 
-app.get('/moreQuestions', (req, res) => {
+app.get('/moreQuestions', async (req, res) => {
   const { number } = req.body;
   axios.get(`https://opentdb.com/api.php?amount=${number}&type=multiple`)
     .then((resp) => {
